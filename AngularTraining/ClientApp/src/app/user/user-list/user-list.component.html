@@ -1,0 +1,31 @@
+<h1><i class="fa fa-users"></i> Users</h1>
+
+<div *ngIf="!users">Loading...</div>
+<div class="row">
+  <div class="col-md-12 text-right" style="margin-bottom:20px;">
+    <button type="button" [routerLink]="['/user-create']" class="btn btn-success"><i class="fa fa-plus"></i> Create New</button>
+  </div>
+  <div class="col-md-12">
+    <table *ngIf="users" class="table table-bordered table-hover table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <a [routerLink]="['/user-details/', user.id]" class="btn btn-sm btn-link"><i class="fa fa-list"></i> Details</a>
+            <a [routerLink]="['/user-edit/', user.id]" class="btn btn-sm btn-link"><i class="fa fa-edit"></i> Edit</a>
+            <a [routerLink]="" (click)="delete(user.id)" class="btn btn-sm btn-link"><i class="fa fa-trash"></i> Delete</a></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

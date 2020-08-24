@@ -1,0 +1,38 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Sample Project</a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse"
+           [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav mr-auto">
+          <!--<li class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+        </li>-->
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/user-list']"><i class="fa fa-users"></i> Users</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <a *ngIf="isAuthenticated" class="btn btn-link my-2 my-sm-0" (click)="logOut()"><i class="fa fa-arrow-right"></i> Log out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
